@@ -34,8 +34,17 @@ export const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ 
+                y: -12, 
+                scale: 1.02,
+                transition: { duration: 0.3 } 
+              }}
             >
-              <Card className="p-6 h-full flex flex-col bg-card border-border hover:border-primary/50 transition-all hover:shadow-lg group">
+              <Card className="p-6 h-full flex flex-col bg-card border-border hover:border-primary/50 transition-all hover:shadow-2xl hover:shadow-primary/20 group relative overflow-hidden">
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity"
+                  initial={false}
+                />
                 <div className="flex-1 space-y-4">
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -70,15 +79,23 @@ export const Projects = () => {
                   </div>
 
                   <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
+                  {project.tech.map((tech, techIndex) => (
+                    <motion.div
+                      key={tech}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 + techIndex * 0.05 }}
+                      whileHover={{ scale: 1.15, y: -2 }}
+                    >
                       <Badge
-                        key={tech}
                         variant="secondary"
-                        className="bg-primary/10 text-primary hover:bg-primary/20"
+                        className="bg-primary/10 text-primary hover:bg-primary/20 cursor-default"
                       >
                         {tech}
                       </Badge>
-                    ))}
+                    </motion.div>
+                  ))}
                   </div>
                 </div>
 
