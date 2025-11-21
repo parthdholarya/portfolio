@@ -1,7 +1,6 @@
 import { ArrowDown, Download, Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import heroImage from "@/assets/hero-image.jpg";
 import portfolioData from "@/data/portfolio.json";
 
 export const Hero = () => {
@@ -51,13 +50,13 @@ export const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-4xl mx-auto">
           {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="space-y-6 text-center"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -90,7 +89,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-lg text-muted-foreground max-w-lg"
+              className="text-lg text-muted-foreground max-w-2xl mx-auto"
             >
               {personal.tagline}
             </motion.p>
@@ -99,7 +98,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-4 justify-center"
             >
               <Button
                 size="lg"
@@ -126,7 +125,7 @@ export const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="flex gap-4 pt-4"
+              className="flex gap-4 pt-4 justify-center"
             >
               <a
                 href={personal.social.github}
@@ -153,40 +152,6 @@ export const Hero = () => {
                 <Twitter className="h-6 w-6" />
               </a>
             </motion.div>
-          </motion.div>
-
-          {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="relative z-10">
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="relative rounded-2xl overflow-hidden border-4 border-primary/20 shadow-2xl"
-              >
-                <img
-                  src={heroImage}
-                  alt={personal.name}
-                  className="w-full h-auto object-cover"
-                />
-              </motion.div>
-            </div>
-
-            {/* Decorative Elements */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-8 -right-8 w-32 h-32 border-4 border-primary/30 rounded-full"
-            />
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-              className="absolute -bottom-8 -left-8 w-24 h-24 border-4 border-accent/30 rounded-full"
-            />
           </motion.div>
         </div>
 
