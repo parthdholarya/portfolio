@@ -114,13 +114,21 @@ export const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ 
+                  y: -8, 
+                  transition: { duration: 0.2 } 
+                }}
               >
-                <Card className="p-6 h-full bg-card border-border hover:border-primary/50 transition-colors group">
+                <Card className="p-6 h-full bg-card border-border hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/20 group">
                   <div className="flex flex-col items-center text-center space-y-3">
-                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                    <motion.div 
+                      className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors"
+                      whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                    >
                       <feature.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="font-heading font-semibold text-foreground">
+                    </motion.div>
+                    <h3 className="font-heading font-semibold text-foreground group-hover:text-primary transition-colors">
                       {feature.title}
                     </h3>
                     <p className="text-sm text-muted-foreground">

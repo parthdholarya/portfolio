@@ -77,12 +77,21 @@ export const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+              whileHover={{ 
+                y: -10,
+                rotateY: 5,
+                transition: { duration: 0.3 }
+              }}
             >
-              <Card className="p-6 h-full bg-card border-border hover:border-primary/50 transition-all hover:shadow-lg">
+              <Card className="p-6 h-full bg-card border-border hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/10 transform-gpu">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className={`p-2 rounded-lg ${category.color}`}>
+                  <motion.div 
+                    className={`p-2 rounded-lg ${category.color}`}
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                  >
                     <category.icon className="h-5 w-5" />
-                  </div>
+                  </motion.div>
                   <h3 className="font-heading font-semibold text-foreground">
                     {category.title}
                   </h3>
@@ -99,10 +108,12 @@ export const Skills = () => {
                         duration: 0.3,
                         delay: categoryIndex * 0.1 + skillIndex * 0.05,
                       }}
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       <Badge
                         variant="secondary"
-                        className="bg-secondary hover:bg-primary/10 hover:text-primary transition-colors"
+                        className="bg-secondary hover:bg-primary/10 hover:text-primary transition-colors cursor-default"
                       >
                         {skill}
                       </Badge>

@@ -19,7 +19,17 @@ export const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
     >
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
+      <motion.div 
+        className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10"
+        animate={{
+          backgroundPosition: ['0% 0%', '100% 100%'],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      />
       
       {/* Animated Circles */}
       <div className="absolute inset-0 overflow-hidden">
@@ -27,6 +37,8 @@ export const Hero = () => {
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
+            x: [0, 50, 0],
+            y: [0, 30, 0],
           }}
           transition={{
             duration: 8,
@@ -39,6 +51,8 @@ export const Hero = () => {
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.3, 0.5, 0.3],
+            x: [0, -50, 0],
+            y: [0, -30, 0],
           }}
           transition={{
             duration: 10,
@@ -46,6 +60,19 @@ export const Hero = () => {
             ease: "easeInOut",
           }}
           className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.4, 0.2],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl"
         />
       </div>
 
@@ -64,7 +91,13 @@ export const Hero = () => {
               transition={{ delay: 0.2 }}
               className="inline-block"
             >
-              <span className="text-primary font-medium text-lg">Hi, I'm</span>
+              <motion.span 
+                className="text-primary font-medium text-lg"
+                animate={{ opacity: [1, 0.7, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                Hi, I'm
+              </motion.span>
             </motion.div>
 
             <motion.h1
@@ -73,7 +106,17 @@ export const Hero = () => {
               transition={{ delay: 0.3 }}
               className="text-5xl md:text-7xl font-heading font-bold text-foreground"
             >
-              {personal.name}
+              {personal.name.split('').map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.05 }}
+                  className="inline-block"
+                >
+                  {char === ' ' ? '\u00A0' : char}
+                </motion.span>
+              ))}
             </motion.h1>
 
             <motion.h2
@@ -82,7 +125,15 @@ export const Hero = () => {
               transition={{ delay: 0.4 }}
               className="text-2xl md:text-3xl font-heading font-semibold text-primary"
             >
-              {personal.role}
+              <motion.span
+                animate={{ 
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                }}
+                transition={{ duration: 5, repeat: Infinity }}
+                className="bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] bg-clip-text text-transparent"
+              >
+                {personal.role}
+              </motion.span>
             </motion.h2>
 
             <motion.p
@@ -100,25 +151,35 @@ export const Hero = () => {
               transition={{ delay: 0.6 }}
               className="flex flex-wrap gap-4 justify-center"
             >
-              <Button
-                size="lg"
-                onClick={scrollToContact}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              >
-                <Mail className="mr-2 h-5 w-5" />
-                Get In Touch
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="border-primary text-primary hover:bg-primary/10"
-              >
-                <a href={personal.resume} download>
-                  <Download className="mr-2 h-5 w-5" />
-                  Download Resume
-                </a>
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button
+                  size="lg"
+                  onClick={scrollToContact}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground relative overflow-hidden group"
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                    initial={{ x: '-100%' }}
+                    whileHover={{ x: '100%' }}
+                    transition={{ duration: 0.5 }}
+                  />
+                  <Mail className="mr-2 h-5 w-5" />
+                  Get In Touch
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="border-primary text-primary hover:bg-primary/10"
+                >
+                  <a href={personal.resume} download>
+                    <Download className="mr-2 h-5 w-5" />
+                    Download Resume
+                  </a>
+                </Button>
+              </motion.div>
             </motion.div>
 
             <motion.div
@@ -127,30 +188,36 @@ export const Hero = () => {
               transition={{ delay: 0.7 }}
               className="flex gap-4 pt-4 justify-center"
             >
-              <a
+              <motion.a
                 href={personal.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <Github className="h-6 w-6" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href={personal.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
+                whileHover={{ scale: 1.2, rotate: -5 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <Linkedin className="h-6 w-6" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href={personal.social.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <Twitter className="h-6 w-6" />
-              </a>
+              </motion.a>
             </motion.div>
           </motion.div>
         </div>

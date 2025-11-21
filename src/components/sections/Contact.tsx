@@ -70,11 +70,18 @@ export const Contact = () => {
               <h3 className="text-2xl font-heading font-bold text-foreground mb-6">
                 Contact Information
               </h3>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
+                <div className="space-y-6">
+                <motion.div 
+                  className="flex items-start gap-4"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <motion.div 
+                    className="p-3 bg-primary/10 rounded-lg"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                  >
                     <Mail className="h-6 w-6 text-primary" />
-                  </div>
+                  </motion.div>
                   <div>
                     <p className="font-medium text-foreground mb-1">Email</p>
                     <a
@@ -84,12 +91,19 @@ export const Contact = () => {
                       {personal.email}
                     </a>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
+                <motion.div 
+                  className="flex items-start gap-4"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <motion.div 
+                    className="p-3 bg-primary/10 rounded-lg"
+                    whileHover={{ scale: 1.1, rotate: -5 }}
+                  >
                     <Phone className="h-6 w-6 text-primary" />
-                  </div>
+                  </motion.div>
                   <div>
                     <p className="font-medium text-foreground mb-1">Phone</p>
                     <a
@@ -99,17 +113,24 @@ export const Contact = () => {
                       {personal.phone}
                     </a>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
+                <motion.div 
+                  className="flex items-start gap-4"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <motion.div 
+                    className="p-3 bg-primary/10 rounded-lg"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                  >
                     <MapPin className="h-6 w-6 text-primary" />
-                  </div>
+                  </motion.div>
                   <div>
                     <p className="font-medium text-foreground mb-1">Location</p>
                     <p className="text-muted-foreground">{personal.location}</p>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
 
@@ -118,30 +139,36 @@ export const Contact = () => {
                 Connect with me
               </h3>
               <div className="flex gap-4">
-                <a
+                <motion.a
                   href={personal.social.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-primary/10 hover:bg-primary hover:text-primary-foreground rounded-lg transition-colors"
+                  whileHover={{ scale: 1.15, rotate: 5, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <Github className="h-6 w-6" />
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href={personal.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-primary/10 hover:bg-primary hover:text-primary-foreground rounded-lg transition-colors"
+                  whileHover={{ scale: 1.15, rotate: -5, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <Linkedin className="h-6 w-6" />
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href={personal.social.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-primary/10 hover:bg-primary hover:text-primary-foreground rounded-lg transition-colors"
+                  whileHover={{ scale: 1.15, rotate: 5, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <Twitter className="h-6 w-6" />
-                </a>
+                </motion.a>
               </div>
             </div>
 
@@ -166,7 +193,13 @@ export const Contact = () => {
           >
             <Card className="p-8 bg-card border-border">
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
+                <motion.div 
+                  className="space-y-2"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                >
                   <Label htmlFor="name">Name</Label>
                   <Input
                     id="name"
@@ -175,11 +208,17 @@ export const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="bg-background"
+                    className="bg-background focus:scale-[1.01] transition-transform"
                   />
-                </div>
+                </motion.div>
 
-                <div className="space-y-2">
+                <motion.div 
+                  className="space-y-2"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                >
                   <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
@@ -189,11 +228,17 @@ export const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="bg-background"
+                    className="bg-background focus:scale-[1.01] transition-transform"
                   />
-                </div>
+                </motion.div>
 
-                <div className="space-y-2">
+                <motion.div 
+                  className="space-y-2"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                >
                   <Label htmlFor="message">Message</Label>
                   <Textarea
                     id="message"
@@ -203,25 +248,45 @@ export const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="bg-background resize-none"
+                    className="bg-background resize-none focus:scale-[1.01] transition-transform"
                   />
-                </div>
+                </motion.div>
 
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-primary/90"
-                  size="lg"
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      <Send className="mr-2 h-5 w-5" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-primary hover:bg-primary/90 relative overflow-hidden group"
+                    size="lg"
+                  >
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                      initial={{ x: '-100%' }}
+                      animate={isSubmitting ? {} : { x: '100%' }}
+                      transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 1 }}
+                    />
+                    {isSubmitting ? (
+                      <motion.span
+                        animate={{ opacity: [1, 0.5, 1] }}
+                        transition={{ duration: 1, repeat: Infinity }}
+                      >
+                        Sending...
+                      </motion.span>
+                    ) : (
+                      <>
+                        <Send className="mr-2 h-5 w-5" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </motion.div>
               </form>
             </Card>
           </motion.div>
