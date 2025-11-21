@@ -1,0 +1,147 @@
+{
+  "personal": {
+    "name": "Parth Dholariya",
+    "role": "Software Developer",
+    "tagline": "Crafting elegant solutions with code",
+    "bio": "Detail-oriented MCA graduate with a passion for building innovative software solutions. Strong fundamentals in full-stack development, problem-solving, and modern development tools. Committed to delivering high-quality, scalable applications that make a difference.",
+    "email": "parthdholariya9268@gmail.com",
+    "phone": "+91 90997 77484",
+    "location": "Ahmedabad, Gujarat, India",
+    "resume": "/resume.pdf",
+    "social": {
+      "github": "https://github.com/parthdholariya",
+      "linkedin": "https://linkedin.com/in/parthdholariya",
+      "twitter": "https://twitter.com/parthdholariya"
+    }
+  },
+  "skills": {
+    "languages": ["Core Java", "JavaScript", "Python", "SQL"],
+    "frameworks": ["Spring Boot", "Flutter", "JSP/Servlets"],
+    "databases": ["MongoDB", "MySQL", "Firebase Firestore"],
+    "tools": ["Git", "Postman", "VS Code", "IntelliJ IDEA"],
+    "cloud": ["Firebase", "MongoDB Atlas"],
+    "other": ["JWT Authentication", "Spring Security", "REST APIs", "JDBC", "Dart", "HTML/CSS"]
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "AI Email Reply Assistant",
+      "description": "Developed an AI-powered email auto-reply assistant using Spring Boot and Google Gemini API, integrated with a custom browser extension to generate context-aware replies with a single click.",
+      "tech": ["Spring Boot", "Gemini API", "Browser Extension", "AI"],
+      "duration": "Sept 2025 - Oct 2025",
+      "role": "FullStack Developer",
+      "github": "https://github.com/parthdholariya/ai-email-assistant",
+      "live": "",
+      "features": [
+        "AI-powered context-aware email responses",
+        "One-click reply generation",
+        "Browser extension integration",
+        "Spring Boot backend architecture"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Journal App",
+      "description": "Created secure REST APIs with JWT-based authentication for a personal journal application. Implemented full CRUD operations for journal entries with comprehensive testing.",
+      "tech": ["Spring Boot", "MongoDB Atlas", "Spring Security", "JUnit", "Lombok", "JWT"],
+      "duration": "Jun 2025 - Aug 2025",
+      "role": "Backend Developer",
+      "github": "https://github.com/parthdholariya/journal-app",
+      "live": "",
+      "features": [
+        "JWT-based authentication system",
+        "Secure REST API endpoints",
+        "MongoDB Atlas integration",
+        "Comprehensive JUnit testing",
+        "CRUD operations for journal entries"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "ShareBite – Surplus Food Management",
+      "description": "Developing a food donation platform using Flutter and Firebase to connect surplus food providers with those in need. Implementing user roles, real-time data management, and seamless food donation workflow.",
+      "tech": ["Flutter", "Firebase Authentication", "Dart", "Firestore", "Cloud Functions"],
+      "duration": "April 2025 - Present",
+      "role": "Full Stack Developer",
+      "github": "https://github.com/parthdholariya/sharebite",
+      "live": "",
+      "features": [
+        "Real-time food donation tracking",
+        "Firebase authentication integration",
+        "Multi-user role management",
+        "Location-based food matching",
+        "Push notifications for donations"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Job Portal Web Application",
+      "description": "Developed a comprehensive job portal web application with separate modules for Admin, Job Seekers, and Employers. Features include job posting, application management, and user profile updates.",
+      "tech": ["JSP", "Servlets", "JDBC", "MySQL", "HTML", "CSS"],
+      "duration": "March 2024 - April 2024",
+      "role": "Full Stack Developer",
+      "github": "https://github.com/parthdholariya/job-portal",
+      "live": "",
+      "features": [
+        "Admin dashboard for job/user management",
+        "Job seeker profile and application system",
+        "Employer job posting interface",
+        "MySQL database integration",
+        "Session-based authentication"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "role": "Software Engineering Job Simulation",
+      "company": "Hewlett Packard Enterprise",
+      "duration": "June 2025",
+      "type": "Certification Program",
+      "achievements": [
+        "Gained hands-on experience in debugging and code improvement",
+        "Applied real-world software development practices",
+        "Worked on enterprise-level software engineering challenges",
+        "Enhanced problem-solving and analytical skills"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "degree": "Master of Computer Application (MCA)",
+      "institution": "GLS University",
+      "location": "Ahmedabad, Gujarat",
+      "duration": "2024 - Present",
+      "cgpa": "8.2",
+      "highlights": [
+        "Focus on advanced software development",
+        "Specialized in full-stack development",
+        "Active participation in coding competitions"
+      ]
+    },
+    {
+      "id": 2,
+      "degree": "Bachelor of Computer Application (BCA)",
+      "institution": "Atmiya University",
+      "location": "Rajkot, Gujarat",
+      "duration": "2021 - 2024",
+      "cgpa": "7.33",
+      "highlights": [
+        "Strong foundation in computer science fundamentals",
+        "Completed multiple web development projects",
+        "Participated in hackathons and tech events"
+      ]
+    },
+    {
+      "id": 3,
+      "degree": "Higher Secondary Certificate (HSC)",
+      "institution": "Shree Divyajyot Vidhyalay",
+      "location": "Kalavad, Gujarat",
+      "duration": "2021",
+      "percentage": "",
+      "highlights": []
+    }
+  ],
+  "languages": ["English", "Hindi", "Gujarati (Native)"]
+}
