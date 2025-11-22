@@ -1,12 +1,16 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Award, ExternalLink, Calendar } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Award, ExternalLink, Calendar, Eye } from "lucide-react";
 import portfolioData from "@/data/portfolio.json";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { CertificateModal } from "@/components/CertificateModal";
 
 export const Certifications = () => {
   const { certifications } = portfolioData;
+  const [selectedCertificate, setSelectedCertificate] = useState<typeof certifications[0] | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -15,6 +19,11 @@ export const Certifications = () => {
 
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+
+  const handleViewCertificate = (cert: typeof certifications[0]) => {
+    setSelectedCertificate(cert);
+    setModalOpen(true);
+  };
 
   return (
     <section id="certifications" className="py-20 bg-background relative overflow-hidden" ref={ref}>
@@ -140,6 +149,34 @@ export const Certifications = () => {
                         ))}
                       </div>
                     )}
+
+                    <div className="flex gap-2 mt-4 pt-4 border-t border-border">
+                      <Button
+                        variant="default"
+                        size="sm"
+                        onClick={() => handleViewCertificate(cert)}
+                        className="flex-1 gap-2"
+                      >
+                        <Eye className="h-4 w-4" />
+                        View Certificate
+                      </Button>
+                      {cert.credentialUrl && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          asChild
+                          className="border-primary/50 text-primary hover:bg-primary/10"
+                        >
+                          <a
+                            href={cert.credentialUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
+                    </div>
                   </div>
                 </Card>
               </motion.div>
@@ -147,6 +184,12 @@ export const Certifications = () => {
           })}
         </div>
       </div>
+
+      <CertificateModal
+        certificate={selectedCertificate}
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+      />
     </section>
   );
 };
