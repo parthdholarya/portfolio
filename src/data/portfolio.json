@@ -3,7 +3,7 @@
     "name": "Parth Dholariya",
     "role": "Software Developer",
     "tagline": "Crafting elegant solutions with code",
-    "bio": "Detail-oriented MCA graduate with a passion for building innovative software solutions. Strong fundamentals in full-stack development, problem-solving, and modern development tools. Committed to delivering high-quality, scalable applications that make a difference.",
+    "bio": "Hi, I’m Parth Dholariya, a passionate Software Developer dedicated to building efficient, scalable, and user-focused solutions. I enjoy transforming ideas into reality using clean code and modern technologies. Whether it’s crafting seamless user interfaces or developing powerful backend systems, I love solving problems through technology.",
     "email": "parthdholariya9268@gmail.com",
     "phone": "+91 90997 77484",
     "location": "Ahmedabad, Gujarat, India",
@@ -94,15 +94,13 @@
   "experience": [
     {
       "id": 1,
-      "role": "Software Engineering Job Simulation",
-      "company": "Hewlett Packard Enterprise",
-      "duration": "June 2025",
-      "type": "Certification Program",
+      "role": "Intern PHP WebDeveloper",
+      "company": "ImbueSoft LLP",
+      "duration": "April 2023 - May 2023",
+      "type": "Intenship",
       "achievements": [
-        "Gained hands-on experience in debugging and code improvement",
-        "Applied real-world software development practices",
-        "Worked on enterprise-level software engineering challenges",
-        "Enhanced problem-solving and analytical skills"
+        "Completed internship where I got hands-on experience in PHP web development.",
+        "Worked on creating and improving dynamic web applications using PHP, MySQL, HTML, CSS, and JavaScript."
       ]
     }
   ],
@@ -117,7 +115,7 @@
       "highlights": [
         "Focus on advanced software development",
         "Specialized in full-stack development",
-        "Active participation in coding competitions"
+        "Learn More Technologies and Skills"
       ]
     },
     {
@@ -130,29 +128,30 @@
       "highlights": [
         "Strong foundation in computer science fundamentals",
         "Completed multiple web development projects",
-        "Participated in hackathons and tech events"
+        "Learn More Technologies and Skills"
       ]
-    },
-    {
-      "id": 3,
-      "degree": "Higher Secondary Certificate (HSC)",
-      "institution": "Shree Divyajyot Vidhyalay",
-      "location": "Kalavad, Gujarat",
-      "duration": "2021",
-      "percentage": "",
-      "highlights": []
     }
   ],
   "languages": ["English", "Hindi", "Gujarati (Native)"],
   "certifications": [
     {
       "id": 1,
+      "title": "Generative AI Mastermind",
+      "issuer": "Outskill x Moneycontrol",
+      "date": "17 November 2025",
+      "description": "Completed a comprehensive Generative AI program focused on prompt engineering, practical AI tools, and real-world applications.",
+      "credentialUrl": "",
+      "skills": ["Prompt Engineering", "AI Tools & Automation", "No-Code App Development", "AI Image Generation","AI Video Creation"]
+    },
+    {
+      "id": 2,
       "title": "Software Engineering Job Simulation",
       "issuer": "Hewlett Packard Enterprise",
       "date": "June 2025",
-      "description": "Completed hands-on software engineering simulation focusing on debugging, code improvement, and enterprise-level development practices.",
+      "description":"Completed hands-on software engineering simulation focusing on debugging, code improvement, and enterprise-level development practices.",
       "credentialUrl": "",
-      "skills": ["Debugging", "Code Review", "Software Development", "Problem Solving"]
+      "skills": ["Debugging", "Code Review", "Software Development", "Problem Solving","Spring Boot","RestAPI","Postman"]
     }
+
   ]
 }

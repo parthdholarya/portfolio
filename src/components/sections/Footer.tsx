@@ -121,8 +121,7 @@ export const Footer = () => {
               © {currentYear} {personal.name}. All rights reserved.
             </p>
             <p className="flex items-center gap-2">
-              Made with <Heart className="h-4 w-4 text-red-500" /> using React &
-              Tailwind CSS
+              Made with By Parth Dholariya
             </p>
           </div>
         </div>
