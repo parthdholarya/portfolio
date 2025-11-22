@@ -143,5 +143,16 @@
       "highlights": []
     }
   ],
-  "languages": ["English", "Hindi", "Gujarati (Native)"]
+  "languages": ["English", "Hindi", "Gujarati (Native)"],
+  "certifications": [
+    {
+      "id": 1,
+      "title": "Software Engineering Job Simulation",
+      "issuer": "Hewlett Packard Enterprise",
+      "date": "June 2025",
+      "description": "Completed hands-on software engineering simulation focusing on debugging, code improvement, and enterprise-level development practices.",
+      "credentialUrl": "",
+      "skills": ["Debugging", "Code Review", "Software Development", "Problem Solving"]
+    }
+  ]
 }
