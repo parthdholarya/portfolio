@@ -1,10 +1,11 @@
 import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Download, Printer, Award, Calendar, Building2, X } from "lucide-react";
+import { Download, Printer, Award, Calendar, Building2, X, QrCode } from "lucide-react";
 import { motion } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 import portfolioData from "@/data/portfolio.json";
+import QRCodeSVG from "react-qr-code";
 
 interface Certificate {
   id: number;
@@ -150,6 +151,36 @@ export const CertificateModal = ({ certificate, open, onOpenChange }: Certificat
               font-size: 12px;
               color: #94a3b8;
             }
+            .qr-section {
+              margin-top: 40px;
+              padding-top: 30px;
+              border-top: 1px solid #e2e8f0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 20px;
+            }
+            .qr-code {
+              padding: 16px;
+              background: white;
+              border: 2px solid #e2e8f0;
+              border-radius: 8px;
+            }
+            .qr-text {
+              text-align: left;
+              max-width: 300px;
+            }
+            .qr-title {
+              font-size: 14px;
+              font-weight: 600;
+              color: #1a1a1a;
+              margin-bottom: 8px;
+            }
+            .qr-description {
+              font-size: 12px;
+              color: #64748b;
+              line-height: 1.5;
+            }
             @media print {
               body { padding: 0; }
               .certificate-container { border-width: 2px; }
@@ -288,13 +319,27 @@ Credential URL: ${certificate.credentialUrl || 'Not available'}
                   </div>
                 )}
 
+                {certificate.credentialUrl && (
+                  <div className="qr-section">
+                    <div className="qr-code">
+                      <div style={{height: '120px', width: '120px', background: '#f8fafc', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: '#94a3b8', textAlign: 'center', padding: '10px'}}>
+                        QR Code Available Online
+                      </div>
+                    </div>
+                    <div className="qr-text">
+                      <div className="qr-title">Verify This Certificate</div>
+                      <div className="qr-description">
+                        Visit the URL below to verify the authenticity of this certificate and view the credential details online.
+                      </div>
+                      <div style={{fontSize: '10px', color: '#94a3b8', marginTop: '8px', wordBreak: 'break-all'}}>
+                        {certificate.credentialUrl}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 <div className="footer">
                   Generated from {portfolioData.personal.name}'s Portfolio
-                  {certificate.credentialUrl && (
-                    <div style={{marginTop: '8px'}}>
-                      Credential URL: {certificate.credentialUrl}
-                    </div>
-                  )}
                 </div>
               </div>
             </div>
@@ -414,27 +459,56 @@ Credential URL: ${certificate.credentialUrl || 'Not available'}
               )}
 
               {certificate.credentialUrl && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1 }}
-                  className="pt-6"
-                >
-                  <Button
-                    variant="outline"
-                    asChild
-                    className="gap-2"
+                <>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1 }}
+                    className="pt-6 border-t border-border"
                   >
-                    <a
-                      href={certificate.credentialUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View Credential
-                      <Award className="h-4 w-4" />
-                    </a>
-                  </Button>
-                </motion.div>
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+                      <div className="text-center">
+                        <div className="mb-3 flex items-center justify-center gap-2">
+                          <QrCode className="h-4 w-4 text-primary" />
+                          <p className="text-sm font-semibold text-foreground">
+                            Scan to Verify
+                          </p>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg border-2 border-primary/20 inline-block">
+                          <QRCodeSVG
+                            value={certificate.credentialUrl}
+                            size={140}
+                            level="H"
+                            fgColor="#0ea5e9"
+                          />
+                        </div>
+                        <p className="text-xs text-muted-foreground mt-3 max-w-[200px]">
+                          Scan this QR code to verify certificate authenticity
+                        </p>
+                      </div>
+
+                      <div className="flex flex-col gap-3">
+                        <Button
+                          variant="outline"
+                          asChild
+                          className="gap-2 w-full md:w-auto"
+                        >
+                          <a
+                            href={certificate.credentialUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Award className="h-4 w-4" />
+                            View Credential Online
+                          </a>
+                        </Button>
+                        <p className="text-xs text-muted-foreground max-w-[280px] text-center md:text-left">
+                          Click to visit the official credential page and verify this certificate
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </>
               )}
             </div>
           </motion.div>
