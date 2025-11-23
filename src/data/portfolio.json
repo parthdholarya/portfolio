@@ -9,7 +9,7 @@
     "location": "Ahmedabad, Gujarat, India",
     "resume": "/resume.pdf",
     "social": {
-      "github": "https://github.com/parthdholariya",
+      "github": "https://github.com/parthdholarya",
       "linkedin": "https://linkedin.com/in/parthdholariya",
       "twitter": "https://twitter.com/parthdholariya"
     }
@@ -30,7 +30,7 @@
       "tech": ["Spring Boot", "Gemini API", "Browser Extension", "AI"],
       "duration": "Sept 2025 - Oct 2025",
       "role": "FullStack Developer",
-      "github": "https://github.com/parthdholariya/ai-email-assistant",
+      "github": "https://github.com/parthdholarya/ai-email-assistant",
       "live": "",
       "features": [
         "AI-powered context-aware email responses",
@@ -46,7 +46,7 @@
       "tech": ["Spring Boot", "MongoDB Atlas", "Spring Security", "JUnit", "Lombok", "JWT"],
       "duration": "Jun 2025 - Aug 2025",
       "role": "Backend Developer",
-      "github": "https://github.com/parthdholariya/journal-app",
+      "github": "https://github.com/parthdholarya/journal-app",
       "live": "",
       "features": [
         "JWT-based authentication system",
@@ -63,7 +63,7 @@
       "tech": ["Flutter", "Firebase Authentication", "Dart", "Firestore", "Cloud Functions"],
       "duration": "April 2025 - Present",
       "role": "Full Stack Developer",
-      "github": "https://github.com/parthdholariya/sharebite",
+      "github": "https://github.com/parthdholarya/sharebite",
       "live": "",
       "features": [
         "Real-time food donation tracking",
@@ -80,7 +80,7 @@
       "tech": ["JSP", "Servlets", "JDBC", "MySQL", "HTML", "CSS"],
       "duration": "March 2024 - April 2024",
       "role": "Full Stack Developer",
-      "github": "https://github.com/parthdholariya/job-portal",
+      "github": "https://github.com/parthdholarya/job-portal",
       "live": "",
       "features": [
         "Admin dashboard for job/user management",

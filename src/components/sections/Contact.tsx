@@ -18,17 +18,57 @@ export const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+  //   // Simulate form submission
+  //   await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    toast.success("Message sent successfully! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
+  //   toast.success("Message sent successfully! I'll get back to you soon.");
+  //   setFormData({ name: "", email: "", message: "" });
+  //   setIsSubmitting(false);
+  // };
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  const emailRegex =
+    /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+  if (!emailRegex.test(formData.email)) {
+    toast.error("Please enter a valid email!");
     setIsSubmitting(false);
-  };
+    return;
+  }
+
+  const formDataToSend = new FormData();
+  formDataToSend.append("name", formData.name);
+  formDataToSend.append("email", formData.email);
+  formDataToSend.append("message", formData.message);
+
+  try {
+    const response = await fetch("https://formspree.io/f/xzzwyeyg", {
+      method: "POST",
+      body: formDataToSend,
+      headers: { "Accept": "application/json" }
+    });
+
+    if (response.ok) {
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      toast.error("Failed to send message!");
+    }
+  } catch (error) {
+    toast.error("Something went wrong!");
+  }
+
+  setIsSubmitting(false);
+};
+
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
